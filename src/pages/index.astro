@@ -8,7 +8,11 @@ import barkingBeauties from '../../public/barking-beauties.png'
 import milanCreations from '../../public/milan-creations.png'
 import SectionHeader from '../components/SectionHeader.astro';
 import WebsiteCard from '../components/WebsiteCard.astro';
+import SocialIcon from '../components/SocialIcon.astro';
 ---
+<script>
+
+</script>
 
 <Layout title="Whit Allee Codes">
 	<main class="m-auto p-[1rem] sm:p-[3rem] w-[calc(100svw - 24px)] max-w-[calc(100% - 2rem) text-white text-xl">
@@ -23,7 +27,7 @@ import WebsiteCard from '../components/WebsiteCard.astro';
 		</div>
 
 		<!-- ADD CONTACT/HIRE BUTTON -->
-		<div class="w-full flex justify-center sticky top-0"><a href="mailto:whitallee@gmail.com" class="bg-orange-700 p-4 mt-4 rounded-2xl shadow-lg">Hire Me</a></div>
+		<div class="w-full flex justify-center sticky top-0 z-[100001]"><a href="mailto:whitallee@gmail.com" class="bg-orange-700 p-4 mt-4 rounded-2xl shadow-lg">Hire Me</a></div>
 
 		<!-- Websites I've made -->
 		<!-- ADD TAGS OF TECH USED FOR EACH PROJECT -->
@@ -54,8 +58,11 @@ import WebsiteCard from '../components/WebsiteCard.astro';
 
 		<!-- ADD SOCIALS SECTION -->
 		<SectionHeader title="Socials:" color='bg-green-700'/>
-		<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-
+		<div class="flex gap-4 sm:gap-16 w-full justify-center">
+			<SocialIcon socialLink='https://www.linkedin.com/in/whit-allee-web-developer/' imagePath='/src/assets/icons8-linkedin-48.png' altText="Link to Whit's LinkedIn"/>
+			<SocialIcon socialLink='https://github.com/whitallee' imagePath='/src/assets/icons8-github-50.png' altText="Link to Whit's Github"/>
+			<SocialIcon socialLink='https://x.com/AlleeWhit' imagePath='/src/assets/icons8-twitterx-48.png' altText="Link to Whit's X/Twitter"/>
+			<SocialIcon socialLink='https://www.instagram.com/whit_allee/' imagePath='/src/assets/icons8-instagram-48.png' altText="Link to Whit's Instagram"/>
 		</div>
 		
 		<!-- ADD WIP SECTION -->
