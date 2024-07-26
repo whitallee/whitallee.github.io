@@ -9,16 +9,20 @@ interface Props {
    altText: string;
    color: string;
    loading: "eager" | "lazy";
+   description: string;
 }
 
-const { websiteLink, websiteName, imagePath, altText, color, loading } = Astro.props;
+const { websiteLink, websiteName, imagePath, altText, color, loading, description } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
 if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 ---
 
-<a href={websiteLink} target="_blank">
-    <div class="flex flex-col items-center hover:scale-110 transition-all gap-1">
-        <h3 class="text-xl sm:text-xl text-center">{websiteName}</h3>
-        <Image loading={loading} src={images[imagePath]()} alt={altText} height={570} width={960} class={color + " rounded-3xl border-[4px] object-cover shadow-lg"}/>
-    </div>
-</a>
+<div class="flex gap-2">
+    <a href={websiteLink} target="_blank">
+        <div class="flex flex-col items-center hover:scale-110 transition-all gap-1">
+            <h3 class="text-xl sm:text-xl text-center">{websiteName}</h3>
+            <Image loading={loading} src={images[imagePath]()} alt={altText} height={570} width={960} class={color + " rounded-3xl border-[4px] object-cover shadow-lg"}/>
+        </div>
+    </a>
+    <p>{description}</p>
+</div>

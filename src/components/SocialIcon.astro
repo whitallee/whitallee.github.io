@@ -6,13 +6,15 @@ interface Props {
    socialLink: string;
    imagePath: string;
    altText: string;
+   atDesc: string;
 }
 
-const { socialLink, imagePath, altText } = Astro.props;
+const { socialLink, imagePath, altText, atDesc } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
 if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
 ---
 
-<a href={socialLink} target="_blank" class="hover:scale-110 transition-all">
+<a href={socialLink} target="_blank" class="hover:scale-110 transition-all flex items-center gap-4">
         <Image src={images[imagePath]()} alt={altText} height={48} width={48} class={"rounded-xl border-[3px] object-cover shadow-lg bg-white"}/>
+        <span>{atDesc}</span>
 </a>
