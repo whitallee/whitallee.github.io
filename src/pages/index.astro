@@ -9,28 +9,26 @@ import milanCreations from '../../public/milan-creations.png'
 import SectionHeader from '../components/SectionHeader.astro';
 import WebsiteCard from '../components/WebsiteCard.astro';
 import SocialIcon from '../components/SocialIcon.astro';
+import EmailForm from '../components/EmailForm.astro';
 ---
-<script>
 
-</script>
-
-<Layout title="Whit Allee Codes">
-	<main class="m-auto p-[1rem] sm:p-[3rem] w-[calc(100svw - 24px)] max-w-[calc(100% - 2rem) text-white text-xl">
+<Layout title="Whit Codes">
+	<main class="m-auto p-[1rem] sm:p-[3rem] w-[calc(100svw - 24px)] max-w-[1200px] text-white text-xl">
 
 		<!-- Title/Hero section -->
 		<div class="mx-auto flex flex-col-reverse sm:flex-row gap-4 justify-center max-w-[800px] px-4 pb-4">
-			<Image class="mx-auto sm:mx-0 rounded-3xl border-[4px] border-green-900 h-[375px] w-[300px] sm:h-[250px] sm:w-[200px] object-cover" src={whitPic} alt={"Picture of Whit Allee"} width={384} height={512}/>
+			<Image loading={"eager"} class="mx-auto sm:mx-0 rounded-3xl border-[4px] border-green-900 h-[375px] w-[300px] sm:h-[250px] sm:w-[200px] object-cover" src={whitPic} alt={"Portrait of Whit Allee"} width={384} height={512}/>
 			<div class="flex flex-col justify-center gap-4">
 				<h1 class="text-5xl sm:text-5xl">Whit <span class="font-bold text-green-500">codes</span></h1>
 				<span class="text-2xl sm:text-2xl italic pb-4">Hey<span class="not-italic">👋</span>, my name is Whit Allee, and I have a passion for building websites and figuring out how to solve my own problems through programming.</span>
 			</div>
 		</div>
 
-		<!-- ADD CONTACT/HIRE BUTTON -->
-		<div class="w-full flex justify-center sticky top-0 z-[100001]"><a href="mailto:whitallee@gmail.com" class="bg-orange-700 p-4 mt-4 rounded-2xl shadow-lg">Hire Me</a></div>
+		<!-- Contact button and email form -->
+		<EmailForm/>
 
 		<!-- Websites I've made -->
-		<!-- ADD TAGS OF TECH USED FOR EACH PROJECT -->
+<!-- ADD TAGS OF TECH USED FOR EACH PROJECT -->
 		<SectionHeader title="Websites:" color='bg-green-500'/>
 		<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 px-2 sm:px-6">
 			<WebsiteCard
@@ -39,6 +37,7 @@ import SocialIcon from '../components/SocialIcon.astro';
 				imagePath="/src/assets/animal-family.png"
 				altText="Screenshot of Animal Family website"
 				color='border-green-900'
+				loading='eager'
 			/>
 			<WebsiteCard
 				websiteLink="https://barkingbeauties.netlify.app/"
@@ -46,6 +45,7 @@ import SocialIcon from '../components/SocialIcon.astro';
 				imagePath="/src/assets/barking-beauties.png"
 				altText="Screenshot of Barking Beauties website"
 				color='border-green-900'
+				loading='eager'
 			/>
 			<WebsiteCard
 				websiteLink="https://milan-creations-app-fb.web.app/"
@@ -53,11 +53,13 @@ import SocialIcon from '../components/SocialIcon.astro';
 				imagePath="/src/assets/milan-creations.png"
 				altText="Screenshot of Milan Creations website"
 				color='border-green-900'
+				loading="lazy"
 			/>
 		</div>
 
-		<!-- ADD SOCIALS SECTION -->
-		<SectionHeader title="Socials:" color='bg-green-700'/>
+		<!-- Socials -->
+<!-- ADD MY @s FOR EACH SOCIAL -->
+		<SectionHeader title="Socials:" color='bg-green-500'/>
 		<div class="flex gap-4 sm:gap-16 w-full justify-center">
 			<SocialIcon socialLink='https://www.linkedin.com/in/whit-allee-web-developer/' imagePath='/src/assets/icons8-linkedin-48.png' altText="Link to Whit's LinkedIn"/>
 			<SocialIcon socialLink='https://github.com/whitallee' imagePath='/src/assets/icons8-github-50.png' altText="Link to Whit's Github"/>
@@ -65,20 +67,17 @@ import SocialIcon from '../components/SocialIcon.astro';
 			<SocialIcon socialLink='https://www.instagram.com/whit_allee/' imagePath='/src/assets/icons8-instagram-48.png' altText="Link to Whit's Instagram"/>
 		</div>
 		
-		<!-- ADD WIP SECTION -->
-		<SectionHeader title="Works In Progress:" color='bg-green-700'/>
+
+<!-- ADD CURRENT MILESTONES SECTION -->
+		<SectionHeader title="Current Endeavors:" color='bg-green-500'/>
+		<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+		</div>
+
+<!-- ADD WIP SECTION -->
+		<SectionHeader title="Works In Progress:" color='bg-green-500'/>
 		<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
 		</div>
 	</main>
 </Layout>
-
-<style>
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-</style>

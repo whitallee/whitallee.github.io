@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import closeIcon from '../../public/close.png'
+---
+
+<script>
+    const contactButton = document.getElementById('contactButton')
+    const closeContactButton = document.getElementById('closeContactButton')
+    const emailFormDiv = document.getElementById('emailFormDiv')
+
+    contactButton?.addEventListener('click', () => {
+        emailFormDiv?.classList.toggle("not-visible")
+    });
+    closeContactButton?.addEventListener('click', () => {
+        emailFormDiv?.classList.toggle("not-visible")
+    });
+</script>
+
+<!-- Contact Button -->
+<div class="w-full flex justify-center sticky top-0 z-[100001]">
+    <button type="button" class="contactButton bg-orange-700 p-4 mt-4 rounded-2xl shadow-lg hover:scale-110 transition-all" id="contactButton">Contact Me</button>
+</div>
+
+<!-- Email Form -->
+<div id="emailFormDiv" class="not-visible fixed bottom-0 mb-16 transition-all z-[100005] shadow-xl w-[calc(100svw-96px)] max-w-[calc(1200px-96px)]">
+    <form action="" method="post" name="emailForm" class=" bg-green-900 flex flex-col gap-6 p-8 rounded-3xl">
+        <div class="flex w-full justify-between pb-4">
+            <h2 class="text-3xl">Reach out here, or to whitallee@gmail.com</h2>
+            <button type="button" class="closeContactButton" id="closeContactButton"><Image class="invert h-8 w-8 hover:scale-110 hover:invert-0 transition-all" src={closeIcon} alt="close contact form" height={50} width={50} /></button>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-6">
+            <div class="flex gap-2">
+                <label for="name">Please enter your name:</label>
+                <input class="rounded-2xl px-2 text-black" placeholder="Jane Doe" type="text" name="name" required>
+            </div>
+            <div class="flex gap-2">
+                <label for="email">Please enter your email:</label>
+                <input class="rounded-2xl px-2 text-black" placeholder="janedoe@mail.com" type="email" name="email" required>
+            </div>
+        </div>
+        <div class="flex flex-col">
+            <label for="message">Please enter your message:</label>
+            <input class="rounded-2xl px-2 text-black text-wrap" placeholder="Hi Whit! I'm wanting to make a website for my dog walking business. Sincerely, Jane Doe" type="text" name="message" required>
+        </div>
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<style>
+    .not-visible {
+        opacity: 0%;
+        transform: translateY(150%);
+    }
+</style>
